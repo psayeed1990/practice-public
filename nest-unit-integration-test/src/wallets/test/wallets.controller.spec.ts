@@ -31,9 +31,11 @@ describe('WalletsController', () => {
 
       beforeEach(async () => {
         wallet = await walletsController.getWallet(walletStub().walletId);
+        console.log('w', wallet);
       });
 
       test('then it should call walletsService', () => {
+        console.log('j', walletStub().walletId);
         expect(walletsService.getWallet).toBeCalledWith(walletStub().walletId);
       });
 
@@ -72,6 +74,7 @@ describe('WalletsController', () => {
           age: walletStub().age,
         };
         wallet = await walletsController.createWallet(createWalletDto);
+        console.log('c', wallet);
       });
 
       test('then it should call walletsService', () => {
